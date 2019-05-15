@@ -5,7 +5,8 @@
 			counsel
 			evil
 			rainbow-delimiters
-			smartparens))
+			smartparens
+			swift-mode))
 
 ;; load packages
 (require 'package)
@@ -43,14 +44,26 @@
 ;; full path in title bar
 (setq-default frame-title-format "%b (%f)")
 
+;; enable spell check
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 ;; enable evil mode (vim key-bindings)
 (require 'evil)
 (evil-mode 1)
+(setq-default evil-escape-key-sequence "jk")
 
 ;; enable ivy mode (fuzzy search)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
+(setq ivy-re-builders-alist
+      '((swiper . ivy--regex-plus)
+        (t      . ivy--regex-fuzzy)))
+
+;; counsel global key bindings
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-x C-f") 'counsel-file-jump)
 
 (require 'smartparens-config)
 (require 'rainbow-delimiters)
@@ -62,8 +75,6 @@
 (outline-minor-mode t)
 (outline-minor-mode nil)
 
-;; search for file with C-s
-(global-set-key (kbd "C-s") 'counsel-find-file)
 
 ;; move between windows with shift + arrow keys
 (when (fboundp 'windmove-default-keybindings)
@@ -80,7 +91,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (aggressive-indent smartparens rainbow-delimiters counsel evil cider))))
+    (swift-mode aggressive-indent smartparens rainbow-delimiters counsel evil cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
