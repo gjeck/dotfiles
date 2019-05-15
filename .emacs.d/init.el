@@ -6,12 +6,13 @@
 			evil
 			rainbow-delimiters
 			smartparens
-			swift-mode))
+			swift-mode
+			which-key))
 
 ;; load packages
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
 ;; fetch the list of packages available 
@@ -27,8 +28,8 @@
 (let ((basedir "~/.emacs.d/themes/"))
   (dolist (f (directory-files basedir))
     (if (and (not (or (equal f ".") (equal f "..")))
-             (file-directory-p (concat basedir f)))
-        (add-to-list 'custom-theme-load-path (concat basedir f)))))
+	     (file-directory-p (concat basedir f)))
+	(add-to-list 'custom-theme-load-path (concat basedir f)))))
 
 ;; load the solarized theme
 (load-theme 'solarized t)
@@ -59,7 +60,7 @@
 (setq ivy-count-format "(%d/%d) ")
 (setq ivy-re-builders-alist
       '((swiper . ivy--regex-plus)
-        (t      . ivy--regex-fuzzy)))
+	(t      . ivy--regex-fuzzy)))
 
 ;; counsel global key bindings
 (global-set-key (kbd "C-s") 'swiper)
@@ -75,7 +76,6 @@
 (outline-minor-mode t)
 (outline-minor-mode nil)
 
-
 ;; move between windows with shift + arrow keys
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
@@ -84,6 +84,14 @@
 	  '(lambda () (define-key cider-repl-mode-map (kbd "C-l")
 			'cider-repl-clear-buffer)))
 
+;; guided key-binding for incomplete commands
+(require 'which-key)
+(which-key-mode)
+
+;; disable emacs backup and auto-save files
+(setq backup-directory-alist nil)
+(setq auto-save-file-name-transforms nil)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -91,11 +99,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (swift-mode aggressive-indent smartparens rainbow-delimiters counsel evil cider))))
+    (cider which-key swift-mode aggressive-indent smartparens rainbow-delimiters counsel evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-      
+
