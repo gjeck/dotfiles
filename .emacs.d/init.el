@@ -1,9 +1,11 @@
 ;; my packages
-(setq my-package-list '(aggressive-indent
+(setq my-package-list '(ag
+			aggressive-indent
 			cider
 			clojure-mode
 			counsel
 			evil
+			projectile
 			rainbow-delimiters
 			smartparens
 			swift-mode
@@ -64,7 +66,11 @@
 
 ;; counsel global key bindings
 (global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "C-x C-f") 'counsel-file-jump)
+
+;; projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c f") 'projectile-find-file)
 
 (require 'smartparens-config)
 (require 'rainbow-delimiters)
@@ -99,7 +105,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cider which-key swift-mode aggressive-indent smartparens rainbow-delimiters counsel evil))))
+    (ag projectile cider which-key swift-mode aggressive-indent smartparens rainbow-delimiters counsel evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
