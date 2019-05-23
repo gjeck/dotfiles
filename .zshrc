@@ -22,11 +22,20 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 # fastlane
 export PATH="$HOME/.fastlane/bin:$PATH"
 
+# emacs cask
+export PATH="$HOME/.cask/bin:$PATH"
+
+# git-extras
+source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+
 # default editor
 export EDITOR=vim
 
+# fix 'no matches found'
+unsetopt nomatch
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/gjeckell/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -38,7 +47,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Hide user name when it is me
-DEFAULT_USER=gjeckell
+DEFAULT_USER=`whoami`
 
 # fzf show dotfiles
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'

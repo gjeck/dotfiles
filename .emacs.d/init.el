@@ -1,30 +1,7 @@
-;; my packages
-(setq my-package-list '(ag
-			aggressive-indent
-			cider
-			clojure-mode
-			counsel
-			evil
-			projectile
-			rainbow-delimiters
-			smartparens
-			swift-mode
-			which-key))
-
-;; load packages
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(package-initialize)
-
-;; fetch the list of packages available 
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; install any missing packages
-(dolist (package my-package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+(pallet-mode t)
 
 ;; add all theme files
 (let ((basedir "~/.emacs.d/themes/"))
@@ -71,6 +48,7 @@
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c f") 'projectile-find-file)
+(define-key projectile-mode-map (kbd "C-c a") 'projectile-ag)
 
 (require 'smartparens-config)
 (require 'rainbow-delimiters)
@@ -97,19 +75,4 @@
 ;; disable emacs backup and auto-save files
 (setq backup-directory-alist nil)
 (setq auto-save-file-name-transforms nil)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (ag projectile cider which-key swift-mode aggressive-indent smartparens rainbow-delimiters counsel evil))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
