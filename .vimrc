@@ -13,13 +13,14 @@ Plug 'tpope/vim-fireplace'
 Plug 'vim-scripts/paredit.vim'
 Plug 'anyakichi/vim-surround'
 Plug 'venantius/vim-cljfmt'
+Plug 'yegappan/grep'
 call plug#end()
 
 " basic tabs/spaces
-set tabstop=2 " a tab is two spaces
+set tabstop=4 " a tab is four spaces
 set autoindent " enable auto indent
-set shiftwidth=2 " two spaces for auto indent
-set softtabstop=2
+set shiftwidth=4 " four spaces for auto indent
+set softtabstop=4
 set smarttab
 set expandtab
 set showmatch " show matching parens

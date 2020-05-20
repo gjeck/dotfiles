@@ -46,9 +46,14 @@
 
 ;; projectile
 (projectile-mode +1)
+
+;; helm-projectile (fuzzy search for projectile)
+(require 'helm-projectile)
+(helm-projectile-on)
+
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c f") 'projectile-find-file)
-(define-key projectile-mode-map (kbd "C-c a") 'projectile-ag)
+(define-key projectile-mode-map (kbd "C-c f") 'helm-projectile-find-file)
+(define-key projectile-mode-map (kbd "C-c a") 'helm-projectile-ag)
 
 (require 'smartparens-config)
 (require 'rainbow-delimiters)
@@ -76,3 +81,21 @@
 (setq backup-directory-alist nil)
 (setq auto-save-file-name-transforms nil)
 
+;; neotree
+(require 'neotree)
+(global-set-key (kbd "C-c t") 'neotree-toggle)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (helm-projectile neotree yasnippet which-key web-mode use-package swift-mode smex smartparens rainbow-delimiters projectile prodigy popwin pallet evil counsel cider aggressive-indent ag))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

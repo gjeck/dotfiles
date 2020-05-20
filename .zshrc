@@ -34,6 +34,10 @@ export EDITOR=vim
 # fix 'no matches found'
 unsetopt nomatch
 
+# swiftenv
+export SWIFTENV_ROOT=/usr/local/var/swiftenv
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -62,3 +66,6 @@ export LANG=en_US.UTF-8
 
 # syntax highlight in terminal
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Fix macOS gettext issue
+export PATH="/usr/local/opt/gettext/bin:$PATH"
