@@ -78,6 +78,7 @@
 (which-key-mode)
 
 ;; disable emacs backup and auto-save files
+(setq make-backup-files nil)
 (setq backup-directory-alist nil)
 (setq auto-save-file-name-transforms nil)
 
