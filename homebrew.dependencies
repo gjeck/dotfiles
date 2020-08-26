@@ -8,5 +8,6 @@ leiningen
 nvm
 pyenv
 rbenv
+the_silver_searcher
 vim
 zsh-syntax-highlighting
