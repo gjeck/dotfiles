@@ -8,7 +8,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'toyamarinyon/vim-swift'
 Plug 'scrooloose/nerdtree'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fireplace'
 Plug 'vim-scripts/paredit.vim'
 Plug 'anyakichi/vim-surround'
@@ -38,7 +37,6 @@ set number " enable line numbers
 " syntax highlighting and color theme
 syntax enable 
 set background=dark
-colorscheme solarized
 
 " use TAB key for switching buffers
 map <Tab> :bnext<CR>

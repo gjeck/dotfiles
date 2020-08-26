@@ -3,20 +3,14 @@
 (require 'pallet)
 (pallet-mode t)
 
-;; add all theme files
-(let ((basedir "~/.emacs.d/themes/"))
-  (dolist (f (directory-files basedir))
-    (if (and (not (or (equal f ".") (equal f "..")))
-	     (file-directory-p (concat basedir f)))
-	(add-to-list 'custom-theme-load-path (concat basedir f)))))
-
-;; load the solarized theme
-(load-theme 'solarized t)
+;; Use dark theme always
 (set-terminal-parameter nil 'background-mode 'dark)
-(enable-theme 'solarized)
 
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
+
+;; Turn on syntax highlighting
+(global-font-lock-mode 1)
 
 ;; Show line numbers
 (global-linum-mode)
@@ -99,11 +93,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
- ;; overwrite some ivy highlighting for mini-buffer
- ;; use `'M-x list-faces-display` to show examples' 
- '(ivy-minibuffer-match-face-1 ((t (:background "#404040")))) 
- '(ivy-minibuffer-match-face-2 ((t (:background "#555555")))) 
- '(ivy-minibuffer-match-face-3 ((t (:background "#6B396B")))) 
- '(ivy-minibuffer-match-face-4 ((t (:background "#804480")))) 
  )

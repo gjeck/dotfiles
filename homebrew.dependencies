@@ -1,0 +1,12 @@
+aspell
+cask
+git
+git-lfs
+httpie
+jenv
+leiningen
+nvm
+pyenv
+rbenv
+vim
+zsh-syntax-highlighting
