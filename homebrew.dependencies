@@ -9,5 +9,6 @@ nvm
 pyenv
 rbenv
 the_silver_searcher
+tree
 vim
 zsh-syntax-highlighting
