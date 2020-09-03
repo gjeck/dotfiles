@@ -55,10 +55,6 @@
 (add-hook 'prog-mode-hook #'aggressive-indent-mode)
 (add-hook 'prog-mode-hook #'smartparens-mode)
 
-;; hack to get rainbow-delimiters to work with solarized theme
-(outline-minor-mode t)
-(outline-minor-mode nil)
-
 ;; move between windows with shift + arrow keys
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
@@ -66,6 +62,9 @@
 (add-hook 'cider-repl-mode-hook
 	  '(lambda () (define-key cider-repl-mode-map (kbd "C-l")
 			'cider-repl-clear-buffer)))
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook #'aggressive-indent-mode)
+(add-hook 'cider-repl-mode-hook #'smartparens-mode)
 
 ;; guided key-binding for incomplete commands
 (require 'which-key)
