@@ -15,7 +15,7 @@ xargs brew install < homebrew.cask.dependencies
 After installing new homebrew packages, generate `.dependencies` files with:
 ```
 brew leaves > homebrew.dependencies
-brew cask list | sort > homebrew.cask.dependencies
+brew list --cask | sort > homebrew.cask.dependencies
 ```
 
 ### Terminal:
@@ -25,10 +25,9 @@ brew cask list | sort > homebrew.cask.dependencies
 Vim plugins are managed by [vim-plug][2]. Once manually installed, bootstrap by opening vim and running `:PlugInstall`.
 
 ### Emacs:
-Emacs plugins are managed by [Cask][3] and [Pallet][4]. Bootstrap by running `cask install` in the `~/.emacs.d/` directory.
+Install [doom-emacs][4] and manage with `~/.emacs.d/bin/doom`.
 
 [1]: https://brew.sh
 [2]: https://github.com/junegunn/vim-plug
 [3]: https://ohmyz.sh
-[4]: https://github.com/cask/cask
-[5]: https://github.com/rdallasgray/pallet
+[4]: https://github.com/hlissner/doom-emacs
