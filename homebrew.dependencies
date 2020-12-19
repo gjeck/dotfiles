@@ -4,11 +4,13 @@ emacs
 fd
 ffmpeg
 git
+git-crypt
 git-lfs
 httpie
 jenv
 leiningen
 nvm
+openjdk
 pandoc
 pyenv
 rbenv

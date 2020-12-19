@@ -17,7 +17,7 @@
 (doom! :input
        :completion
        company           ; the ultimate code completion backend
-       ivy               ; a search engine for love and life
+       (ivy +fuzzy)      ; a search engine for love and life
 
        :ui
        doom              ; what makes DOOM look the way it does
@@ -50,7 +50,7 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       spell               ; tasing you for misspelling mispelling
+       (spell +aspell +everywhere) ; tasing you for misspelling mispelling
        grammar             ; tasing grammar mistake every you make
 
        :tools

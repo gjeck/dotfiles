@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-;; (setq user-full-name "John Doe"
-;;      user-mail-address "john@doe.com")
+(setq user-full-name "Gregory Jeckell"
+      user-mail-address "gregory.jeckell.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -29,7 +29,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/gjeck/braindump/org")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -51,3 +51,19 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(defun my-file-to-string (filename)
+  (with-temp-buffer (insert-file-contents filename) (buffer-string)))
+
+;; Configure org-roam mode
+(use-package! org-roam
+  :ensure t
+  :hook (after-init . org-roam-mode)
+  :custom (org-roam-directory "~/Documents/gjeck/braindump/org")
+  :bind (:map org-roam-mode-map
+         (("C-c n l" . org-roam)
+          ("C-c n f" . org-roam-find-file)
+          ("C-c n g" . org-roam-graph))
+         :map org-mode-map
+         (("C-c n i" . org-roam-insert))
+         (("C-c n I" . org-roam-insert-immediate))))
