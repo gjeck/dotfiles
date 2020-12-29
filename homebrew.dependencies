@@ -12,6 +12,7 @@ leiningen
 nvm
 openjdk
 pandoc
+plantuml
 pyenv
 rbenv
 ripgrep

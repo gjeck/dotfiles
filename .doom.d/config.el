@@ -55,6 +55,9 @@
 (defun my-file-to-string (filename)
   (with-temp-buffer (insert-file-contents filename) (buffer-string)))
 
+;; Configure PlantUML
+(setq org-plantuml-jar-path (expand-file-name "/usr/local/opt/plantuml/libexec/plantuml.jar"))
+
 ;; Configure org-roam mode
 (use-package! org-roam
   :ensure t
