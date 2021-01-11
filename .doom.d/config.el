@@ -52,21 +52,17 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(defun my-file-to-string (filename)
-  (with-temp-buffer (insert-file-contents filename) (buffer-string)))
-
 ;; Configure PlantUML
 (setq org-plantuml-jar-path (expand-file-name "/usr/local/opt/plantuml/libexec/plantuml.jar"))
 
+;; Configure Treemacs
+(setq doom-themes-treemacs-theme "doom-colors")
+
+;; Configure hl-line+
+(use-package! hl-line+
+  :config
+  (hl-line-when-idle-interval 0.3)
+  (toggle-hl-line-when-idle 1))
+
 ;; Configure org-roam mode
-(use-package! org-roam
-  :ensure t
-  :hook (after-init . org-roam-mode)
-  :custom (org-roam-directory "~/Documents/gjeck/braindump/org")
-  :bind (:map org-roam-mode-map
-         (("C-c n l" . org-roam)
-          ("C-c n f" . org-roam-find-file)
-          ("C-c n g" . org-roam-graph))
-         :map org-mode-map
-         (("C-c n i" . org-roam-insert))
-         (("C-c n I" . org-roam-insert-immediate))))
+(setq org-roam-directory "~/Documents/gjeck/braindump/org")

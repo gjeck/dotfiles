@@ -72,7 +72,10 @@
        kotlin            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
        markdown          ; writing docs for people to ignore
-       org               ; organize your plain life in plain text
+       (org              ; organize your plain life in plain text
+        +pretty
+        +journal
+        +roam)
        python            ; beautiful is better than ugly
        racket            ; a DSL for DSLs
        rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
