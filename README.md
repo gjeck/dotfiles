@@ -25,7 +25,7 @@ brew list --cask | sort > homebrew.cask.dependencies
 Vim plugins are managed by [vim-plug][2]. Once manually installed, bootstrap by opening vim and running `:PlugInstall`.
 
 ### Emacs:
-Install [doom-emacs][4] and manage with `~/.emacs.d/bin/doom`.
+Install [doom-emacs][4] and manage with `doom` command from the terminal.
 
 [1]: https://brew.sh
 [2]: https://github.com/junegunn/vim-plug

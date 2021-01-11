@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # homebrew path precedence
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH":~/.emacs.d/bin
 
 # rbenv
 export RBENV_ROOT=/usr/local/var/rbenv

@@ -1,6 +1,5 @@
 aspell
 coreutils
-emacs
 fd
 ffmpeg
 git
@@ -11,7 +10,6 @@ jenv
 jq
 leiningen
 nvm
-openjdk
 pandoc
 plantuml
 pyenv
