@@ -65,4 +65,30 @@
   (toggle-hl-line-when-idle 1))
 
 ;; Configure org-roam mode
-(setq org-roam-directory "~/Documents/gjeck/braindump/org")
+(use-package! org-roam
+  :hook
+  (after-init . org-roam-mode)
+  :custom
+  (org-roam-directory "~/Documents/gjeck/braindump/org")
+  (org-roam-capture-templates
+      '(("d" "default" plain (function org-roam-capture--get-point)
+         "%?"
+         :file-name "${slug}"
+         :head "#+title: ${title}\n#+created: %u"
+         :unnarrowed t)))
+  :config
+  (defun org-roam--title-to-slug (title)
+    "Convert a title to a filename-suitable slug. Uses hyphens rather than underscores."
+    (cl-flet* ((nonspacing-mark-p (char)
+                                  (eq 'Mn (get-char-code-property char 'general-category)))
+               (strip-nonspacing-marks (s)
+                                       (apply #'string (seq-remove #'nonspacing-mark-p
+                                                                   (ucs-normalize-NFD-string s))))
+               (cl-replace (title pair)
+                           (replace-regexp-in-string (car pair) (cdr pair) title)))
+      (let* ((pairs `(("[^[:alnum:][:digit:]+]" . "-")  ;; convert anything not alphanumeric or plus <---
+                      ("--*" . "-")  ;; remove sequential underscores
+                      ("^-" . "")  ;; remove starting underscore
+                      ("-$" . "")))  ;; remove ending underscore
+             (slug (-reduce-from #'cl-replace (strip-nonspacing-marks title) pairs)))
+        (s-downcase slug)))))
