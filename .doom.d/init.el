@@ -31,6 +31,8 @@
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        workspaces        ; tab emulation, persistence & separate workspaces
+       emoji
+       unicode
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
@@ -54,9 +56,9 @@
        grammar             ; tasing grammar mistake every you make
 
        :tools
-       (eval +overlay)     ; run code, run (also, repls)
-       lookup              ; navigate your code and its documentation
-       magit               ; a git porcelain for Emacs
+       (eval +overlay)      ; run code, run (also, repls)
+       (lookup +dictionary) ; navigate your code and its documentation
+       magit                ; a git porcelain for Emacs
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
